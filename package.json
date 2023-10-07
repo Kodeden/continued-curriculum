@@ -1,0 +1,13 @@
+{
+  "name": "continued-curriculum",
+  "version": "1.0.0",
+  "description": "⚠️ This picks up where KodeDen's EduFlow left off. Don't look 👀 here until you have completed all of the stuff in EduFlow first!",
+  "keywords": [
+    "curriculum"
+  ],
+  "author": "Manav Misra",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
+}
