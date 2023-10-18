@@ -253,7 +253,7 @@ To get around this, we can mock 🤡 our database. This is a common practice in 
 
 In a nutshell, `msw` will intercept our requests, preventing them from touching the database server or the API. Instead, it will return a fake response that we can control. This way, we can test ✅ our app in isolation, and we don't have to worry about polluting our real database with test data.
 
-For a more in-depth at using `msw` with React Testing Library, check out [this lesson](./msw.md).
+For a more in-depth look at using `msw` with React Testing Library, check out [this lesson](./msw.md).
 
 ### 🧪 End-to-End (E2E) Tests
 
