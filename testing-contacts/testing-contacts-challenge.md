@@ -260,3 +260,5 @@ For a more in-depth look at using `msw` with React Testing Library, check out [t
 This is where tools like [Cypress](https://www.cypress.io/) and [Playwright](https://playwright.dev/) come in. These are tools that allow us to write tests that interact with our app in a browser. They are similar to integration/interaction tests, but they are more focused on the user experience. They are also more focused on the end-to-end flow of our app, rather than individual units of our code.
 
 Generally, these are a bit more enjoyable and simpler to write than traditional tests with React Testing Library. It's arguable that they don't emphasize accessibility ♿ as much as React Testing Library, but they are still very useful. And, besides, linting configurations can help us with accessibility ♿ issues.
+
+For a more in-depth look at Cypress, check out [this lesson](./cypress.md).
