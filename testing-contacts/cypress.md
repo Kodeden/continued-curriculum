@@ -337,3 +337,9 @@ cy.intercept("POST", "/contacts", (request) => {
   });
 }).as("createContact");
 ```
+
+## Challenge
+
+Finish up the testing with Cypress. Do the `PUT` and `DELETE`. Again, you only need to test the outgoing request, not the rendering of the data. That was already covered by React Testing Library and even our Cypress Testing.
+
+DM a link your repo and commits to your instructor in Slack.
