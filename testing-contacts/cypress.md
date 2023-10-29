@@ -280,3 +280,60 @@ Here are a few that we will be working with:
 ## First Cypress Test ✅
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/9604c0193a6241f6ac157e54380c89c2?sid=20f58369-9a15-4112-8581-9bcef641dc75" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## Review and Set up Cypress Fixtures ✅
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/1754efa5ce16422186ea6192deed650c?sid=167783f8-4d49-4194-b294-8a0cf45366f9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## Fixtures Concepts
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/0f66655f92394208a58860d974539ab9?sid=c63a6c1d-c212-493d-a17d-f89db8c668c3" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## Rewrite the 'Load Contacts' Tests with Cypress Fixtures ✅
+
+Under the `cypress/e2e` create a new file, maybe 🤔 `read.cy.js`. In this file, based on what we saw in the docs 📝, let's add: `cy.intercept('GET', '/contacts', { fixture: 'contacts.json' })`.
+
+_Note:_ Earlier I said that we would have to include the 'base URL' for the request. It turns out that Cypress is smart enough to intercept any outgoing network requests for `/contacts` automatically. So, no need for `http://localhost:3001` 🤓.
+
+Next, we'll write a test as follows:
+
+```js
+it("displays the contacts", () => {
+  cy.visit("http://localhost:5173");
+
+  cy.findAllByRole("listitem").should(
+    "have.length",
+
+    // TODO: Match however many data points are in your fixture
+    10,
+  );
+});
+```
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/ffd32af491d1457db94e3b077ac3b372?sid=e4e7e29e-2eb9-4fa1-909d-01d0912d1aeb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## Testing a POST Form Submission with Cypress Intercept ✅
+
+We have already proven that we can load and render contacts data from the API. We **do not** need to do this again, even if we are creating a new contact. The only thing that we are going to test is that the form submission works as expected, meaning that it triggers a POST request **with** the correct form data!
+
+## Cypress Post Intercept
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/4a54062c2059429daa5c5511041f10cf?sid=28efa3e6-9094-47b7-8e9b-4a9e6f194a80" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/23e15cf009144b5d9291ec04491a6630?sid=5be5f0ba-d64b-45ee-8cda-3d95818a51ea" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+_Note:_ The reason that we got a failed response, is because we didn't actually send back any response at all. So, that means it's a failed request. We can update our intercept to send back a valid response, even though we don't really care to use it:
+
+```js
+cy.intercept("POST", "/contacts", (request) => {
+  request.reply({
+    statusCode: 201,
+    body: {
+      id: "11",
+      name: NEW_NAME,
+      email: NEW_EMAIL,
+      tel: NEW_PHONE,
+    },
+  });
+}).as("createContact");
+```
