@@ -7,3 +7,4 @@
 If you have come here after completing the EduFlow curriculum, you should have a solution for the Contacts Challenge with React Router. You've also started writing ✍️ some tests ✅ for it. If you haven't, go back and do that first. Otherwise, the following content will guide you through the next steps, but you should theoretically be able to do this 💩 yourself first.
 
 1. [Testing the Contacts Challenge](./testing-contacts/testing-contacts-challenge.md)
+1. [TS Fundamentals](./ts/ts-intro.md)
