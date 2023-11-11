@@ -338,6 +338,10 @@ cy.intercept("POST", "/contacts", (request) => {
 }).as("createContact");
 ```
 
+## Additional Reading
+
+This is a list of [*anti-patterns*](https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State) from the Cypress team.
+
 ## Challenge
 
 Finish up the testing with Cypress. Do the `PUT` and `DELETE`. Again, you only need to test the outgoing request, not the rendering of the data. That was already covered by React Testing Library and even our Cypress Testing.
