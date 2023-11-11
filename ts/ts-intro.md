@@ -87,6 +87,8 @@ Then, make your first commit:
 
 ## `tsconfig.json`
 
+[Video](https://screenpal.com/player/c0XXYZVG3FD?ff=1&title=0&width=100%&height=100%)
+
 This configuration 🔧 determines how our TS gets compiled. There are way too many rules and settings to keep up with as TS has just grown and grown.
 
 First, [watch this](https://youtu.be/eJXVEju3XLM?si=56huHiywtv0bHrt5).
