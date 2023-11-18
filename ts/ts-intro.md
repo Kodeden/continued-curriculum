@@ -158,3 +158,85 @@ Here's how it works:
 This feature is particularly useful for maintaining consistency across projects while allowing for necessary customizations in each specific project.
 
 For example, if you extend a configuration that sets `strict` to `false` but in your local `tsconfig.json` you set `strict` to `true`, your local setting of `true` will be the effective setting for your project.
+
+Aside from that, if there are any settings in particular that you want to know about, you can consult the docs [here](https://www.typescriptlang.org/tsconfig). When doing so, you probably want to use 'command + f' to search for the setting you are looking for.
+
+Of course, you can also ask ChatGPT or in our Slack channel.
+
+Summarily, this is a file that you should be familiar with so that you can edit it as needed from time to time.
+
+## `package.json`
+
+Now that we have TS configured and we can run `tsc` to compile our TS into JS, let's add a script to our `package.json` to do this for us. Add the following to your `package.json`:
+
+```json
+{
+  "devDependencies": {
+    "@tsconfig/node-lts": "^18.12.5",
+    "@tsconfig/recommended": "^1.0.3",
+    "@tsconfig/strictest": "^2.0.2",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
+```
+
+Above is what your `package.json` should look like after adding the `build` script. Don't worry about the exact version numbers shown above. They will change over time. The important thing is that you have the `build` script.
+
+You can now run `npm run build` to compile your TS into JS. You should see a `dist` folder with a `index.js` file in it. You can delete the `dist` folder and run `npm run build` again to see it recreated.
+
+### `--watch` Flag 🚩
+
+It's great that we can compile our TS into JS, but it's a bit of a pain to have to run `npm run build` every time we make a change. Luckily, we can use the `--watch` flag to watch our code and recompile it whenever we make a change. Add the following to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  }
+}
+```
+
+Now, as you edit (and save) `src/index.ts`, `dist/index.js` will be updated automatically. This is a huge win for developer experience. It's a bit like hot reloading, but for TS. Just make sure that you are 🏃🏾‍♂️ `npm watch`. Note that you can name that script whatever you want, for instance, `tsc-watch` or even `mickey-mouse` 🐁 👂🏾.
+
+If you got stuck, [this video](https://somup.com/c0XFoQgtuF) might help. Feel free to move on if you are comfortable with the above.
+
+**Note:** If you emulate the code shown in the video above ☝️, you will get an error for `console.log`. Don't worry about it for now.
+
+### `@types`
+
+Update `src/index.ts` to the following:
+
+```ts
+function add2Nums(a: number, b: number): number {
+  return a + b;
+}
+
+console.log(add2Nums(1, 2));
+```
+
+`console.log` will be marked with an error. TS will give some suggestion about `lib` settings. Basically, TS is not aware of what `console.log` is in Node. To fix this we will install the TS types for Node: `npm install -D @types/node`. That should resolve things. If not, exit out of VS Code and come back in.
+
+Any time you install a package that's annotated with: `@types` you are installing type definitions for TS. This way TS knows "what's allowed" and what the various properties and methods are. Case and point, without defining the types for Node, TS doesn't know what `console.log` is. It's not a part of the language itself, but rather a part of the Node runtime.
+
+Installing `@types` packages for various libraries is a common thing to do. For example, if you are using React (which we are not for now!), you will want to install `@types/react` and `@types/react-dom`.
+
+## Automatically 🏃🏾‍♂️ the Compiled JS Code
+
+Update `"scripts"` in `package.json` to the following:
+
+````json
+
+```json
+"scripts": {
+  "build": "tsc --watch",
+  "start": "node --watch dist/index.js"
+}
+````
+
+Really, you can make up your own names, but what's important is that we have `"build"` (or whatever) to compile our TS all the while watching it. And, we have `"start"` to keep watching and 🏃🏾‍♂️ the compiled JS code 🤓.
+
+[This video](https://somup.com/c0XFoQgtuF) shows how it should work now.
