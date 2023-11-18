@@ -240,3 +240,15 @@ Update `"scripts"` in `package.json` to the following:
 Really, you can make up your own names, but what's important is that we have `"build"` (or whatever) to compile our TS all the while watching it. And, we have `"start"` to keep watching and 🏃🏾‍♂️ the compiled JS code 🤓.
 
 [This video](https://somup.com/c0XFoQgtuF) shows how it should work now.
+
+## ESLint 🚨 and Prettier 🎨
+
+There's just a bit more work to add in our ESLint and Prettier tooling, and we cover that in [this video](https://somup.com/c0XFbXgtw1).
+
+## Conclusion
+
+Note that we didn't use Vite at all. That's because that is a tool for the browser, and not Node. In fact, we are not using any additional bundlers here. Just TS, Node, and some tooling. We will get to Vite and the browser soon enough, but for now, we are just focusing on TS and Node.
+
+Generally, TS is for the benefit of developers and helps us catch some mistakes without having to run and crash the code.
+
+Our code is compiled to JS with `tsc`. We can use `tsc --watch` to watch our code and recompile it whenever we make a change. We can also use `node --watch dist/index.js` to watch our compiled JS code and run it whenever it changes.
