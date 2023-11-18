@@ -228,8 +228,6 @@ Installing `@types` packages for various libraries is a common thing to do. For 
 
 Update `"scripts"` in `package.json` to the following:
 
-````json
-
 ```json
 "scripts": {
   "build": "tsc --watch",
