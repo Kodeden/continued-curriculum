@@ -233,7 +233,7 @@ Update `"scripts"` in `package.json` to the following:
   "build": "tsc --watch",
   "start": "node --watch dist/index.js"
 }
-````
+```
 
 Really, you can make up your own names, but what's important is that we have `"build"` (or whatever) to compile our TS all the while watching it. And, we have `"start"` to keep watching and 🏃🏾‍♂️ the compiled JS code 🤓.
 
@@ -250,3 +250,5 @@ Note that we didn't use Vite at all. That's because that is a tool for the brows
 Generally, TS is for the benefit of developers and helps us catch some mistakes without having to run and crash the code.
 
 Our code is compiled to JS with `tsc`. We can use `tsc --watch` to watch our code and recompile it whenever we make a change. We can also use `node --watch dist/index.js` to watch our compiled JS code and run it whenever it changes.
+
+[Next ➡️](./ts-vitest.md)
