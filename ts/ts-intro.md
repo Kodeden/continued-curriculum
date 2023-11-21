@@ -72,9 +72,11 @@ In `.vscode/settings.json`:
     }
   ],
   "files.autoSave": "onFocusChange",
-  "typescript.validate.enable": true,
+"typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.validate.enable": true
 }
 ```
 
