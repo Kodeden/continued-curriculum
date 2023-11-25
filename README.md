@@ -26,4 +26,4 @@ After each challenge, you should make a very clear commit message showing that y
 Note that many of these challenges and concepts are based on the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). For a full understanding of TypeScript, you should read through that as well.
 
 1. [Challenge 1](./ts/1/ts-1.md)
-1.
+1. [Interfaces](./ts/objects-interfaces/interface-1.md)
