@@ -12,6 +12,10 @@ If you have come here after completing the EduFlow curriculum, you should have a
 
 ### TypeScript 🏷️
 
+You should work through these in the prescribed order. It builds upon itself, and there will be challenge solution spoilers in later sections.
+
+After each challenge, you should make a very clear commit message showing that you attempted/completed the challenge. This will help your instructor know how things are going.
+
 #### Setting up a Template Repo
 
 1. [TS Intro & Setup](./ts/ts-intro.md)
@@ -22,3 +26,4 @@ If you have come here after completing the EduFlow curriculum, you should have a
 Note that many of these challenges and concepts are based on the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). For a full understanding of TypeScript, you should read through that as well.
 
 1. [Challenge 1](./ts/1/ts-1.md)
+1.
