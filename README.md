@@ -14,3 +14,4 @@ If you have come here after completing the EduFlow curriculum, you should have a
 
 1. [TS Intro & Setup](./ts/ts-intro.md)
 1. [TS + Vitest](./ts/ts-vitest.md)
+1. [Using the Template Repo](./ts/ts-1.md)
