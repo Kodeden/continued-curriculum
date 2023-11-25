@@ -4,7 +4,7 @@ This isn't directly TS-centric, but let's add Vitest to our template repo. You'r
 
 ---
 
-1. `npm install -D vite vitest @vitest/ui`.
+1. `npm install -D vitest @vitest/ui`.
 1. Add the following `"scripts"` to `package.json`:
 
 ```json
@@ -39,7 +39,6 @@ To be clear, you `package.json` should be similar to this now:
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "3.1.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0",
     "vitest": "^0.34.6"
   },
   "scripts": {
@@ -108,3 +107,9 @@ Coverage reports are kind of like a test report, but instead of showing you whic
 ## Conclusion
 
 In this lesson we updated our template repo to include Vitest. We also added a few scripts to our `package.json` to make running tests and coverage reports easier.
+
+---
+
+Note that there may be future updates to this template repo and you are free to just use [our template repo](https://github.com/Kodeden/template-node-ts-vitest) going forward instead of maintaining your own.
+
+If you do choose to keep your own rendition, just be sure to run `npm outdated` to keep your packages up to date.
