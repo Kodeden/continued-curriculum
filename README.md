@@ -11,8 +11,14 @@ If you have come here after completing the EduFlow curriculum, you should have a
 1. [Testing the Contacts Challenge](./testing-contacts/testing-contacts-challenge.md)
 
 ### TypeScript 🏷️
+
 #### Setting up a Template Repo
 
 1. [TS Intro & Setup](./ts/ts-intro.md)
 1. [TS + Vitest](./ts/ts-vitest.md)
-1. [Using the Template Repo](./ts/ts-1.md)
+
+#### Working In TypeScript
+
+Note that many of these challenges and concepts are based on the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). For a full understanding of TypeScript, you should read through that as well.
+
+1. [Challenge 1](./ts/1/ts-1.md)

@@ -3,6 +3,8 @@
 **⚠️ DO NOT LOOK AT THE SOLUTION UNTIL YOU HAVE TRIED THIS YOURSELF!**
 **⚠️ DO NOT JUST COPY AND PASTE THIS CODE! YOU WILL NOT LEARN PROPERLY!**
 
+---
+
 ```ts
 export function greet(personName: string): string {
   return "Hello, " + personName;
