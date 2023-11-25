@@ -5,11 +5,17 @@
 
 ---
 
+## Solution
+
 ```ts
 export function greet(personName: string): string {
   return "Hello, " + personName;
 }
 ```
+
+We specified that the parameter `personName` is a `string` and that the function returns a `string`. `(personName: string): string`. The first `string` is the type of the parameter and the second `string` is the return type.
+
+## Test ✅
 
 ```ts
 import { expect, test } from "vitest";
