@@ -28,4 +28,6 @@ Note that many of these challenges and concepts are based on the [TypeScript Han
 1. [Challenge 1](./ts/1/1.md)
 1. [Objects & Interfaces](./ts/objects-interfaces/interfaces.md)
 
-#### Enums and Union Types
+#### Unions
+
+1. [Unions](./ts/unions/unions.md)
