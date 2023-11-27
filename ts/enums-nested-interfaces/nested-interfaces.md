@@ -75,4 +75,4 @@ As you can see, we added a new interface called `Address` and we added a new pro
 
 Go back to `vehicles.ts`. Import the `Person` interface from `index.ts` and use it to add an `owner` property of the `Vehicle` interface. This property should be of type `Person`.
 
-As usual add and commit your changes, and share with your instructor.
+As usual add and commit your changes, and share with your instructor via Slack DM.
