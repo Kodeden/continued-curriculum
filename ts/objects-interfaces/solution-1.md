@@ -16,3 +16,5 @@ export function greet(person: Person): string {
 `(person: Person)` is the type annotation for the parameter. It says that the parameter `person` must be of type `Person`. The `Person` type is defined by the interface we created.
 
 `: string` is the return type annotation. It says that the function must return a `string`.
+
+[Next ➡️ Objects in TS](./ts-objects.md)
