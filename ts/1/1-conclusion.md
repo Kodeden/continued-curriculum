@@ -13,7 +13,3 @@ Nothing is perfect. There are tradeoffs.
 As for us, we will always prioritize 'proper learning' and 'quality code.' In the real world, especially on some unstable projects, this doesn't always happen :(, and in the long run, it usually doesn't work out well.
 
 Once 1️⃣ embraces TS, it's hard to go back.
-
----
-
-[Conclusion](./1-conclusion.md)

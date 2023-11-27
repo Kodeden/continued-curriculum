@@ -28,3 +28,5 @@ test("greet function should return the correct greeting", () => {
   expect(result).toBe(expectedGreeting);
 });
 ```
+
+[Next ➡️ Conclusion](./1-conclusion.md)
