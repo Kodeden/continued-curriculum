@@ -30,4 +30,4 @@ Note that many of these challenges and concepts are based on the [TypeScript Han
 
 #### Unions
 
-1. [Unions](./ts/unions/unions.md)
+1. [Unions](./ts/unions-intersections/unions.md)

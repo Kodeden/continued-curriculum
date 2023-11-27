@@ -71,8 +71,14 @@ interface Address {
 }
 ```
 
+Note that we have to use `type` keyword instead of `interface` keyword to define a union type.
+
 ## Challenge - 🚗
 
 Go back to `src/vehicles.ts` and add a new property to the `Vehicle` interface called `type` which is of type `VehicleType`. `VehicleType` should be a union of the following strings: `"car"`, `"truck"`, `"suv"`, `"van"`, `"motorcycle"`, `"boat"`, `"plane"`, `"spaceship"`, `"other"`. Then, modify the `describeVehicle` function to include the new property in the returned string.
 
 As usual, `add` and `commit` (and `push`) your work and share with your instructor via Slack DM.
+
+---
+
+[Next ➡️ Intersections](./intersections.md)
