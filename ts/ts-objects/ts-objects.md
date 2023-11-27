@@ -68,10 +68,14 @@ Before we continue, let's make sure you understand how to use interfaces. Create
 
 Then create a function called `describeCar` that takes a `Car` as a parameter and returns a string describing the car. For example, if the car is a 2019 Tesla Model 3, the function should return: `2019 Tesla Model 3`.
 
+You can just create another file in `src` called `vehicles.ts`. You could then export that code and run it from `index.ts`. Or, just do: `node dist/vehicles.js` from the command line.
+
 You can hold off on writing the unit test for this until later.
 
 Be sure to commit and share your code with your instructor via Slack DM.
 
 No solution is provided for this challenge. Just do it and submit it to your instructor **with** a brief explanation of what you did (e.g. video 📹).
 
-[Optional Properties](./optional-properties.md)
+---
+
+[Next ➡️ Optional Properties](./optional-properties.md)

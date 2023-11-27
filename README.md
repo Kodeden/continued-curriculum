@@ -21,9 +21,14 @@ After each challenge, you should make a very clear commit message showing that y
 1. [TS Intro & Setup](./ts/ts-intro.md)
 1. [TS + Vitest](./ts/ts-vitest.md)
 
-#### Working In TypeScript
+#### Objects and Interfaces
 
 Note that many of these challenges and concepts are based on the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). For a full understanding of TypeScript, you should read through that as well.
 
 1. [Challenge 1](./ts/1/ts-1.md)
-1. [Interfaces](./ts/objects-interfaces/interface-1.md)
+1. [Interfaces](./ts/objects-interfaces/interfaces.md)
+1. [TS and Objects](./ts/ts-objects/ts-objects.md)
+
+#### Enums and Union Types
+
+1. [Enums]
