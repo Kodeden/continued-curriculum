@@ -28,7 +28,9 @@ interface Person {
 }
 ```
 
-The above **interface** defines a **custom type** called `Person`. It has three properties: `firstName`, `lastName`, and `age`. Each of these properties has a **type annotation**. The `firstName` and `lastName` properties are both **strings** and the `age` property is a **number**.
+The above **interface** defines a **custom type** called `Person`. We typically use **PascalCase** for interface names.
+
+It has three properties: `firstName`, `lastName`, and `age`. Each of these properties has a **type annotation**. The `firstName` and `lastName` properties are both **strings** and the `age` property is a **number**.
 
 You can add this interface to the top of your `index.ts` file. In larger projects, where types 🏷️ get used in various parts of the code, it is common to put them in a separate file and import them.
 
