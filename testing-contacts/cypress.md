@@ -338,6 +338,8 @@ cy.intercept("POST", "/contacts", (request) => {
 }).as("createContact");
 ```
 
+_Note:_ Further testing (literally) reveals that the above code may not be necessary. On subsequent runs, there was no error, and Cypress was not concerned with whether or not we got a 'fake response' back from the `"POST"`.
+
 ## Additional Reading
 
 This is a list of [*anti-patterns*](https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State) from the Cypress team.
