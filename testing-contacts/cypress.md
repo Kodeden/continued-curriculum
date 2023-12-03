@@ -428,7 +428,27 @@ cy.intercept("POST", "/contacts", (request) => {
 
 [This video](https://somup.com/c0le22gHxu) explains more about the importance of mocking 🤡 a response.
 
-If you have some doubt or query, be sure to ask in the Slack.
+### Fix our Test to Actually be an End-to-End Test!
+
+Our test passes, but it's not truly End-to-End after all. It doesn't give the whole experience of the user because we don't see the new name on the 'contacts list,' and that is what we are testing. So, let's fix that.
+
+[Video](https://somup.com/c0leo3gH4V)
+
+---
+
+```js
+/**
+ * TODO:
+ * 1. Create a variable, `newContact`.
+ * 1. Stub the response from the server with the `newContact` object.
+ * 1. Verify that we only have 10 contacts on the screen prior to navigating to the 'Add Contact' page. Also, verify that `NEW_NAME` is not in the list.
+ * 1. Modify the fixture to include the `newContact` object to emulate the database 'writing' the new contact before we click the save button.
+ * 1. Check that we have 11 contacts in the list.
+ * 1. Find `New Name` in the list of contacts.
+ */
+```
+
+[Cypress Docs on Modifying Fixture Data](https://docs.cypress.io/api/commands/fixture#Modifying-fixture-data-before-using-it)
 
 ## Additional Reading
 
