@@ -312,6 +312,94 @@ it("displays the contacts", () => {
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/ffd32af491d1457db94e3b077ac3b372?sid=e4e7e29e-2eb9-4fa1-909d-01d0912d1aeb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+## Test Navigation Between Single Contact and Contact List
+
+[Video](https://somup.com/c0leIUgHwJ)
+
+---
+
+Based on the confusion 😕 about which data was real and which was a fixture I made the following changes to my `contacts.json` fixture:
+
+```diff
+diff --git a/cypress/fixtures/contacts.json b/cypress/fixtures/contacts.json
+index 547b1dd..bd428b5 100644
+--- a/cypress/fixtures/contacts.json
++++ b/cypress/fixtures/contacts.json
+@@ -1,10 +1,10 @@
+ [
+   {
+     "id": "8ce2eb95-8cb0-4706-81fa-5633510dcc69",
+-    "name": "Maria Collier",
++    "name": "Maria Fixture",
+     "tel": "643-916-7554",
+     "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/41.jpg",
+-    "email": "Maria.Collier@hotmail.com"
++    "email": "Maria.Fixture@hotmail.com"
+   },
+   {
+     "id": "e61b2e4f-3991-4f82-a703-1be18f05fff5",
+```
+
+### Finishing Up
+
+Actually, rather than providing another solution video, you should try the challenge yourself. See if you can finish up the work from the previous lesson to test the navigation between the single contact and the contact list.
+
+Let's review the steps:
+
+1. Create a new fixture, say 'contact.json' (singular). Paste in Maria Fixture's (or whoever's) data ℹ️.
+1. Add the **Cypress Intercept** to the `read.cy.js` file. You can review the [Cypress docs on matching URLs](https://docs.cypress.io/api/commands/intercept#Matching-url).
+1. Add `.click` to click 🖱️ on the name.
+1. Verify that an `h2` with the name is displayed. You might also verify another piece of data, such as the email address.
+1. Add `.click` to click on the 'Back' button.
+1. Verify that the list of contacts is displayed.
+
+---
+
+⚠️ **Spoiler Alert** ⚠️
+
+```diff
+diff --git a/cypress/e2e/read.cy.js b/cypress/e2e/read.cy.js
+index b499d8e..86ffc9e 100644
+--- a/cypress/e2e/read.cy.js
++++ b/cypress/e2e/read.cy.js
+@@ -1,6 +1,31 @@
+-it("displays the contacts", () => {
+-  cy.intercept("GET", "/contacts", { fixture: "contacts.json" });
+-  cy.visit("http://localhost:5173");
++describe("read", () => {
++  it("displays the contacts", () => {
++    cy.intercept("GET", "/contacts", { fixture: "contacts.json" });
+
+-  cy.findAllByRole("listitem").should("have.length", 10);
++    cy.visit("http://localhost:5173");
++    cy.findAllByRole("listitem").should("have.length", 10);
++  });
++
++  it("navigates between the contacts list and an individual contact", () => {
++    cy.intercept("GET", "/contacts", { fixture: "contacts.json" });
++    cy.intercept("GET", "/contacts/*", { fixture: "contact.json" });
++
++    // It's not the first name in the UI b/c those are sorted alphabetically
++    const FIRST_NAME_IN_FIXTURE = "Maria Fixture";
++    const FIRST_NAME_IN_FIXTURE_EMAIL = "Maria.Fixture@hotmail.com";
++
++    cy.visit("http://localhost:5173");
++
++    cy.findByRole("link", { name: FIRST_NAME_IN_FIXTURE }).click();
++    cy.findByRole("heading", {
++      level: 2,
++      name: FIRST_NAME_IN_FIXTURE,
++    }).should("exist");
++    cy.findByRole("link", { name: FIRST_NAME_IN_FIXTURE_EMAIL }).should(
++      "exist",
++    );
++    cy.findByRole("link", { name: /back/i }).click();
++
++    cy.findAllByRole("listitem").should("have.length", 10);
++  });
+ });
+```
+
 ## Testing a POST Form Submission with Cypress Intercept ✅
 
 We have already proven that we can load and render contacts data from the API. We **do not** need to do this again, even if we are creating a new contact. The only thing that we are going to test is that the form submission works as expected, meaning that it triggers a POST request **with** the correct form data!
@@ -338,9 +426,11 @@ cy.intercept("POST", "/contacts", (request) => {
 }).as("createContact");
 ```
 
+If you have some doubt or query, be sure to ask in the Slack.
+
 ## Additional Reading
 
-This is a list of [*anti-patterns*](https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State) from the Cypress team.
+This is a list of [_anti-patterns_](https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State) from the Cypress team.
 
 ## Challenge
 
