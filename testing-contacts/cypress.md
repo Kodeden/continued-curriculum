@@ -410,7 +410,7 @@ We have already proven that we can load and render contacts data from the API. W
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/23e15cf009144b5d9291ec04491a6630?sid=5be5f0ba-d64b-45ee-8cda-3d95818a51ea" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-_Note:_ The reason that we got a failed response, is because we didn't actually send back any response at all. So, that means it's a failed request. We can update our intercept to send back a valid response, even though we don't really care to use it:
+_Note:_ The reason that we got a failed response, is because we didn't actually send back any response at all (JSON Server was not 🏃🏾‍♂️). So, that means it's a failed request. We can update our intercept to send back a valid response, even though we don't really care to use it:
 
 ```js
 cy.intercept("POST", "/contacts", (request) => {
@@ -425,6 +425,8 @@ cy.intercept("POST", "/contacts", (request) => {
   });
 }).as("createContact");
 ```
+
+[This video](https://somup.com/c0le22gHxu) explains more about the importance of mocking 🤡 a response.
 
 If you have some doubt or query, be sure to ask in the Slack.
 
