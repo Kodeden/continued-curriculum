@@ -450,6 +450,64 @@ Our test passes, but it's not truly End-to-End after all. It doesn't give the wh
 
 [Cypress Docs on Modifying Fixture Data](https://docs.cypress.io/api/commands/fixture#Modifying-fixture-data-before-using-it)
 
+### Additional Minor Post-Video Updates
+
+I made the following updates after the video, but nothing is consequential. I just changed the name to use SCREAMING_SNAKE_CASE as it's a 'hard configuration constant.' And, I moved it out of the scope of the callback.
+
+```diff
+diff --git a/cypress/e2e/create.cy.js b/cypress/e2e/create.cy.js
+index e90124e..eaa2a70 100644
+--- a/cypress/e2e/create.cy.js
++++ b/cypress/e2e/create.cy.js
+@@ -1,23 +1,25 @@
+-import { v4 as uuidv4 } from "uuid";
+-
+ const NEW_NAME = "A Name";
+ const NEW_EMAIL = "john@email.com";
+ const NEW_PHONE = "555-555-5555";
+ 
+-it("adds a contact", () => {
+-  const newContact = {
+-    id: uuidv4(),
+-    name: NEW_NAME,
+-    email: NEW_EMAIL,
+-    tel: NEW_PHONE,
+-  };
++const NEW_CONTACT = {
++  id: 11,
++  name: NEW_NAME,
++  email: NEW_EMAIL,
++  tel: NEW_PHONE,
++};
+ 
++it("adds a contact", () => {
+   cy.intercept("POST", "/contacts", {
+     statusCode: 201,
+-    body: newContact,
++    body: NEW_CONTACT,
+   }).as("createContact");
+ 
++  // Verify that the new contact is not in the list.
++  cy.intercept("GET", "/contacts", { fixture: "contacts.json" });
+   cy.visit("http://localhost:5173");
++  cy.findAllByRole("listitem").should("have.length", 10);
++  cy.findByRole("link", { name: NEW_NAME }).should("not.exist");
+ 
+   cy.findByRole("link", { name: "Add Contact" }).click();
+   cy.findByLabelText("Name").type(NEW_NAME);
+@@ -31,8 +33,8 @@ it("adds a contact", () => {
+   cy.fixture("contacts").then((contacts) => {
+     cy.intercept("GET", "/contacts", {
+       statusCode: 200,
+-      body: [...contacts, newContact],
+-    }).as("getContacts");
++      body: [...contacts, NEW_CONTACT],
++    });
+   });
+ 
+   cy.findByRole("button", { name: "Save" }).click();
+```
+
 ## Additional Reading
 
 This is a list of [_anti-patterns_](https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State) from the Cypress team.
