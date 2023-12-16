@@ -452,7 +452,7 @@ Our test passes, but it's not truly End-to-End after all. It doesn't give the wh
 
 ### Additional Minor Post-Video Updates
 
-I made the following updates after the video, but nothing is consequential. I just changed the name to use SCREAMING_SNAKE_CASE as it's a 'hard configuration constant.' And, I moved it out of the scope of the callback.
+The following updates occurred after the video, but nothing consequential. The name to use SCREAMING_SNAKE_CASE as it's a 'hard configuration constant.' Also, it was out of the scope of the callback b/c the scope is not a concern in this file, and it makes the test less cluttered.
 
 ```diff
 diff --git a/cypress/e2e/create.cy.js b/cypress/e2e/create.cy.js
