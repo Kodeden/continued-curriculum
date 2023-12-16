@@ -465,7 +465,7 @@ index e90124e..eaa2a70 100644
  const NEW_NAME = "A Name";
  const NEW_EMAIL = "john@email.com";
  const NEW_PHONE = "555-555-5555";
- 
+
 -it("adds a contact", () => {
 -  const newContact = {
 -    id: uuidv4(),
@@ -479,20 +479,20 @@ index e90124e..eaa2a70 100644
 +  email: NEW_EMAIL,
 +  tel: NEW_PHONE,
 +};
- 
+
 +it("adds a contact", () => {
    cy.intercept("POST", "/contacts", {
      statusCode: 201,
 -    body: newContact,
 +    body: NEW_CONTACT,
    }).as("createContact");
- 
+
 +  // Verify that the new contact is not in the list.
 +  cy.intercept("GET", "/contacts", { fixture: "contacts.json" });
    cy.visit("http://localhost:5173");
 +  cy.findAllByRole("listitem").should("have.length", 10);
 +  cy.findByRole("link", { name: NEW_NAME }).should("not.exist");
- 
+
    cy.findByRole("link", { name: "Add Contact" }).click();
    cy.findByLabelText("Name").type(NEW_NAME);
 @@ -31,8 +33,8 @@ it("adds a contact", () => {
@@ -504,7 +504,7 @@ index e90124e..eaa2a70 100644
 +      body: [...contacts, NEW_CONTACT],
 +    });
    });
- 
+
    cy.findByRole("button", { name: "Save" }).click();
 ```
 
@@ -517,3 +517,5 @@ This is a list of [_anti-patterns_](https://docs.cypress.io/guides/references/be
 Finish up the testing with Cypress. Do the `PUT` and `DELETE`. Again, you only need to test the outgoing request, not the rendering of the data. That was already covered by React Testing Library and even our Cypress Testing.
 
 DM a link your repo and commits to your instructor in Slack.
+
+[Next ➡️](./solutions.md)
