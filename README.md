@@ -34,4 +34,7 @@ Note that many of these challenges and concepts are based on the [TypeScript Han
 
 ---
 
+#### Review
+
 1. [Review](./ts/review-1.md)
+1. [Review of TS for JS](./ts/review-2.md)
