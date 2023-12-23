@@ -42,3 +42,4 @@ Note that many of these challenges and concepts are based on the [TypeScript Han
 ---
 
 1. [`class`](./ts/oop-class/class.md)
+1. [OOP vs Functional](./ts/oop-class/oop-v-functional.md)

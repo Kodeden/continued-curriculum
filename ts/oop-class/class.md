@@ -81,3 +81,9 @@ Reinforce your understanding of interfaces and classes in TypeScript by creating
 const myCar = new Car("sedan", 4);
 myCar.printDetails();
 ```
+
+Please notify your instructor when you have completed this challenge. You can just add to your existing TS repo.
+
+---
+
+[Next ➡️](./oop-v-functional.md)
